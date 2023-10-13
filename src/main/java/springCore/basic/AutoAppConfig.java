@@ -1,8 +1,11 @@
 package springCore.basic;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
+import springCore.basic.member.MemberRepository;
+import springCore.basic.member.MemoryMemberRepository;
 
 @Configuration
 @ComponentScan(
@@ -10,4 +13,10 @@ import org.springframework.context.annotation.FilterType;
         excludeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Configuration.class)
 )
 public class AutoAppConfig {
+
+    // 수동 등록 빈 vs 자동 등록 빈 -> 수동 등록 빈이 우선권을 가진다.
+    @Bean(name = "memoryMemberRepository")
+    MemberRepository memberRepository() {
+        return new MemoryMemberRepository();
+    }
 }
