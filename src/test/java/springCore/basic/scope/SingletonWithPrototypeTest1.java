@@ -2,8 +2,8 @@ package springCore.basic.scope;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
+import jakarta.inject.Provider;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Scope;
@@ -41,15 +41,15 @@ public class SingletonWithPrototypeTest1 {
 
     @Scope("singleton")
     static class ClientBean {
-        private final ObjectProvider<PrototypeBean> prototypeBeanObjectProvider; // DL 을 도와주는 기능
+        private final Provider<PrototypeBean> prototypeBeanObjectProvider; // DL 을 도와주는 기능
 
         @Autowired
-        public ClientBean(ObjectProvider<PrototypeBean> prototypeBeanObjectProvider) {
+        public ClientBean(Provider<PrototypeBean> prototypeBeanObjectProvider) {
             this.prototypeBeanObjectProvider = prototypeBeanObjectProvider;
         }
 
         public int logic() {
-            PrototypeBean prototypeBean = prototypeBeanObjectProvider.getObject();
+            PrototypeBean prototypeBean = prototypeBeanObjectProvider.get();
             prototypeBean.addCount();
             return prototypeBean.getCount();
         }
