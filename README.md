@@ -1,5 +1,5 @@
 # Inflearn-Spring
-- 인프런 김영한 강사님의 강의들을 학습하며 작성한 소스코드를 보관하는 저장소
+- 인프런의 Spring 강의들을 학습하며 작성한 소스코드를 보관하는 저장소
 # 목록
 - [Spring-Introduction](https://github.com/Ray901104/Spring/tree/main/Spring-Introduction) 스프링 입문
 - [Spring-Core-Basic](https://github.com/Ray901104/Spring/tree/main/Spring-Core-Basic) 스프링의 기본 핵심원리
