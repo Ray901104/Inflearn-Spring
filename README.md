@@ -17,3 +17,4 @@
 - [SpringMVC-FileUpload](https://github.com/Ray901104/Inflearn-Spring/tree/main/SpringMVC-FileUpload) 스프링을 활용한 파일 업로드 및 다운로드
 ## Spring DB
 - [SpringDB-Jdbc](https://github.com/Ray901104/Inflearn-Spring/tree/main/SpringDB-Jdbc) 스프링 DB 접근 핵심 기술
+- [SpringDB-Applications](https://github.com/Ray901104/Inflearn-Spring/tree/main/SpringDB-Applications) 스프링 DB 접근을 위한 다양한 기술
