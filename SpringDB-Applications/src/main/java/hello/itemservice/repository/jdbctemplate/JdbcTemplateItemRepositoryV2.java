@@ -65,7 +65,7 @@ public class JdbcTemplateItemRepositoryV2 implements ItemRepository {
                 .addValue("itemName", updateParam.getItemName())
                 .addValue("price", updateParam.getPrice())
                 .addValue("quantity", updateParam.getQuantity())
-                .addValue("id", itemId);
+                .addValue("id", itemId); //이 부분이 별도로 필요하여 BeanPropertySqlParameterSource 사용 불가
 
         jdbcTemplate.update(sql, param);
     }
@@ -115,6 +115,6 @@ public class JdbcTemplateItemRepositoryV2 implements ItemRepository {
     }
 
     private RowMapper<Item> itemRowMapper() {
-        return BeanPropertyRowMapper.newInstance(Item.class); //camel 변환 지원
+        return BeanPropertyRowMapper.newInstance(Item.class); //camel 변환 지원, 컬럼명과 객체명이 아예 다르면 alias를 사용하자.
     }
 }
