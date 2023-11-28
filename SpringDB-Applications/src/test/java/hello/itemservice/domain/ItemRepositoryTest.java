@@ -57,6 +57,11 @@ class ItemRepositoryTest {
     }
 
     @Test
+    /*
+     * JPA는 트랜잭션이 종료되기 전까지 저장한 데이터를 캐시에 담아두기 때문에, update 쿼리를 수행하지 않고 캐시에 업데이트하고 조회한다.
+     * 이때 update 수행하게 하려면 @Commit을 붙여주면 된다.
+     */
+//    @Commit
     void updateItem() {
         //given
         Item item = new Item("item1", 10000, 10);
