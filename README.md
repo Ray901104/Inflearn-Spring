@@ -1,5 +1,5 @@
-# Inflearn-Spring
-- 인프런 김영한 선생님의 Spring 로드맵을 달리며 작성한 소스코드를 보관하는 저장소
+# Spring
+- Spring Framework 를 공부하며 작성한 소스코드 저장소
 # 목록
 ## Spring Core
 - [Spring-Introduction](https://github.com/Ray901104/Spring/tree/main/Spring-Introduction) 스프링 입문
