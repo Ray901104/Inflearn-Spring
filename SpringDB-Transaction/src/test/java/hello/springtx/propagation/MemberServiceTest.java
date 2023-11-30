@@ -27,10 +27,10 @@ class MemberServiceTest {
         //given
         String username = "outerTxOff_success";
 
-        //when: 모든 데이터가 정상적으로 저장된다.
+        //when
         memberService.joinV1(username);
 
-        //then
+        //then: 모든 데이터가 정상적으로 저장된다.
         assertTrue(memberRepository.find(username).isPresent());
         assertTrue(logRepository.find(username).isPresent());
     }
@@ -46,11 +46,11 @@ class MemberServiceTest {
         //given
         String username = "로그예외_outerTxOff_fail";
 
-        //when: 모든 데이터가 정상적으로 저장된다.
+        //when
         assertThatThrownBy(() -> memberService.joinV1(username))
                 .isInstanceOf(RuntimeException.class);
 
-        //then
+        //then: 로그 데이터는 롤백된다.
         assertTrue(memberRepository.find(username).isPresent());
         assertTrue(logRepository.find(username).isEmpty());
     }
@@ -66,10 +66,10 @@ class MemberServiceTest {
         //given
         String username = "singleTx_success";
 
-        //when: 모든 데이터가 정상적으로 저장된다.
+        //when
         memberService.joinV1(username);
 
-        //then
+        //then: 모든 데이터가 정상적으로 저장된다.
         assertTrue(memberRepository.find(username).isPresent());
         assertTrue(logRepository.find(username).isPresent());
     }
@@ -78,6 +78,7 @@ class MemberServiceTest {
      * memberService    @Transactional: ON
      * memberRepository @Transactional: ON
      * logRepository    @Transactional: ON
+     * 모든 내부 트랜잭션이 정상 처리되는 케이스
      */
     @Test
     void outerTxOn_success() {
@@ -90,5 +91,25 @@ class MemberServiceTest {
         //then
         assertTrue(memberRepository.find(username).isPresent());
         assertTrue(logRepository.find(username).isPresent());
+    }
+
+    /**
+     * memberService    @Transactional: ON
+     * memberRepository @Transactional: ON
+     * logRepository    @Transactional: ON <- 예외발생!
+     * LogRepository 내부 트랜잭션에서 예외가 발생하여 롤백하는 케이스
+     */
+    @Test
+    void outerTxOn_fail() {
+        //given
+        String username = "로그예외_outerTxOn_fail";
+
+        //when
+        assertThatThrownBy(() -> memberService.joinV1(username))
+                .isInstanceOf(RuntimeException.class);
+
+        //then: 모든 데이터가 롤백된다.
+        assertTrue(memberRepository.find(username).isEmpty());
+        assertTrue(logRepository.find(username).isEmpty());
     }
 }
