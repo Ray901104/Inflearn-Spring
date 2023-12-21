@@ -1,4 +1,4 @@
-package spring.advanced.proxy.pureproxy.code;
+package spring.advanced.proxy.pureproxy.proxy.code;
 
 import lombok.extern.slf4j.Slf4j;
 
