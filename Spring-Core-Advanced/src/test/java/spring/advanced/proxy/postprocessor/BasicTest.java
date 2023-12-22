@@ -16,7 +16,6 @@ public class BasicTest {
     void basicConfig() {
         ApplicationContext context = new AnnotationConfigApplicationContext(BasicConfig.class);
 
-
         A a = context.getBean("beanA", A.class);
         a.helloA();
 
