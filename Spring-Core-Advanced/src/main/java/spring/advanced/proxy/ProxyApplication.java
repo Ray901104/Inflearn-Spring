@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
-import spring.advanced.proxy.config.v5_autoproxy.AutoProxyConfig;
+import spring.advanced.proxy.config.v6_aop.AopConfig;
 import spring.advanced.proxy.trace.logtrace.LogTrace;
 import spring.advanced.proxy.trace.logtrace.ThreadLocalLogTrace;
 
@@ -16,7 +16,8 @@ import spring.advanced.proxy.trace.logtrace.ThreadLocalLogTrace;
 //@Import(ProxyFactoryConfigV1.class)
 //@Import(ProxyFactoryConfigV2.class)
 //@Import(BeanPostProcessorConfig.class)
-@Import(AutoProxyConfig.class)
+//@Import(AutoProxyConfig.class)
+@Import(AopConfig.class)
 @SpringBootApplication(scanBasePackages = "spring.advanced.proxy.app.v3")
 public class ProxyApplication {
 
