@@ -3,7 +3,7 @@
 # 목록
 ## Spring Core
 - [Spring-Introduction](https://github.com/Ray901104/Spring/tree/main/Spring-Introduction) 스프링 입문
-- [Spring-Core-Basic](https://github.com/Ray901104/Spring/tree/main/Spring-Core-Basic) 스프링의 핵심원리 기본
+- [Spring-Core-Basic](https://github.com/Ray901104/Spring/tree/main/Spring-Core-Basic) 스프링 핵심원리 기본
 - [Spring-Core-Advanced](https://github.com/Ray901104/Spring/tree/main/Spring-Core-Advanced) 스프링 핵심원리 고급
 - [Spring-Aop](https://github.com/Ray901104/Spring/tree/main/Spring-Aop) 스프링 AOP
 ## Spring MVC
