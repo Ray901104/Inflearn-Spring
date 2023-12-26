@@ -1,4 +1,4 @@
-package spring.aop.order.aop.member;
+package spring.aop.member;
 
 public interface MemberService {
 
